@@ -39,4 +39,4 @@ npm run dev
 - Enter a name, click "New Room" for new session
 - In a different window, click "Join Room" and paste the Room ID (like `room-1234`)
 - Click "Upload PDF" to sync documents across all users
-- Type in the notes box to auto-save to Postgres
+- Type in the notes box to auto-save for that username
