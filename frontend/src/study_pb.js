@@ -210,7 +210,8 @@ proto.study.User.prototype.toObject = function(opt_includeInstance) {
 proto.study.User.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    avatarUrl: jspb.Message.getFieldWithDefault(msg, 2, "")
+    avatarUrl: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    desiredSessionId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -255,6 +256,10 @@ proto.study.User.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setAvatarUrl(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDesiredSessionId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -298,6 +303,13 @@ proto.study.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getDesiredSessionId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -334,6 +346,24 @@ proto.study.User.prototype.getAvatarUrl = function() {
  */
 proto.study.User.prototype.setAvatarUrl = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string desired_session_id = 3;
+ * @return {string}
+ */
+proto.study.User.prototype.getDesiredSessionId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.study.User} returns this
+ */
+proto.study.User.prototype.setDesiredSessionId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

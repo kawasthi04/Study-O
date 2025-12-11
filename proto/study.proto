@@ -7,14 +7,9 @@ option java_outer_classname = "StudyProto";
 option java_multiple_files = true; // <--- ADD THIS LINE (Crucial!)
 
 service StudyService {
-  // 1. Join a session (Simple call)
-  rpc JoinSession (User) returns (SessionToken);
 
-  // 2. Real-time updates (Server Streaming)
-  // The client sends a token, server keeps connection open and pushes events
+  rpc JoinSession (User) returns (SessionToken);
   rpc StreamSessionUpdates (SessionToken) returns (stream SessionEvent);
-  
-  // 3. User actions (Chat, change page, etc)
   rpc SendAction (SessionAction) returns (Empty);
 
   rpc SaveNote (NoteRequest) returns (Empty);
@@ -26,6 +21,7 @@ service StudyService {
 message User {
   string name = 1;
   string avatar_url = 2;
+  string desired_session_id = 3; 
 }
 
 message SessionToken {
@@ -51,7 +47,7 @@ message SessionEvent {
     string chat_message = 4;
     int32 page_number = 5;
     string user_joined = 6;
-    string document_url = 7; // <--- ADD THIS
+    string document_url = 7; 
   }
 }
 

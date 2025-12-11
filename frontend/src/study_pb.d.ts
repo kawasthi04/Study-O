@@ -9,6 +9,9 @@ export class User extends jspb.Message {
   getAvatarUrl(): string;
   setAvatarUrl(value: string): User;
 
+  getDesiredSessionId(): string;
+  setDesiredSessionId(value: string): User;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): User.AsObject;
   static toObject(includeInstance: boolean, msg: User): User.AsObject;
@@ -21,6 +24,7 @@ export namespace User {
   export type AsObject = {
     name: string,
     avatarUrl: string,
+    desiredSessionId: string,
   }
 }
 
